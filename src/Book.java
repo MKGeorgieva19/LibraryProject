@@ -1,7 +1,16 @@
 public class Book {
+    private int indx;
     private String name;
     private String author;
     private int year;
+
+    public int getIndx() {
+        return indx;
+    }
+
+    public void setIndx(int num) {
+        this.indx = indx;
+    }
 
     public String getName() {
         return name;
@@ -30,7 +39,8 @@ public class Book {
     public Book() {
     }
 
-    public Book(String name, String author, int year) {
+    public Book(int indx, String name, String author, int year) {
+        this.indx = indx;
         this.name = name;
         this.author = author;
         this.year = year;
