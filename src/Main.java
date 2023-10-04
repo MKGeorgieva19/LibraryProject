@@ -14,8 +14,8 @@ public class Main {
         librarianList.add(librarian1);
 
 
-        Book book = new Book(0, "Neshto", "Nqkoi", 2005);
-        Book book1 = new Book(1, "Nishto", "Nikoi", 1995);
+        Book book = new Book("Neshto", "Nqkoi", 2005);
+        Book book1 = new Book("Nishto", "Nikoi", 1995);
 
         bookList.add(book);
         bookList.add(book1);
@@ -69,7 +69,7 @@ public class Main {
                     insertBook();
                     break;
                 case 2:
-                    deleteBookByNameAndYear();
+                    deleteBookByIndex();
                     break;
                 case 3:
                     break;
@@ -87,56 +87,51 @@ public class Main {
     public static void insertBook(){
         Book book = new Book();
         Scanner scanner = new Scanner(System.in);
-        String str;
-        int intg;
         System.out.println();
         for (Book b: bookList) {
-            System.out.println("Book index:" + b.getIndx() + "Book name: " + b.getName() + ", Book author: " + b.getAuthor() + ", Year: " + b.getYear());
+            System.out.println("Book name: " + b.getName() + ", Book author: " + b.getAuthor() + ", Year: " + b.getYear());
         }
         System.out.println();
-        System.out.print("Index num: ");
-        intg = scanner.nextInt();
-        book.setIndx(intg);
+
         System.out.print("Name of the book: ");
         String str1 = scanner.nextLine();
         book.setName(str1);
+
         System.out.print("Name of the author: ");
-        str = scanner.nextLine();
+        String str = scanner.nextLine();
         book.setAuthor(str);
+
         System.out.print("Year the book is created: ");
-        intg = scanner.nextInt();
-        book.setYear(intg);
+        int intg1 = scanner.nextInt();
+        book.setYear(intg1);
+
         bookList.add(book);
+
         System.out.println();
         for (Book b: bookList) {
-            System.out.println("Book index: " + b.getIndx() + " Book name: " + b.getName() + ", Book author: " + b.getAuthor() + ", Year: " + b.getYear());
+            System.out.println("Book name: " + b.getName() + ", Book author: " + b.getAuthor() + ", Year: " + b.getYear());
         }
     }
 
-    public static void deleteBookByNameAndYear(){
+    public static void deleteBookByIndex(){
         Scanner scanner = new Scanner(System.in);
+        int indx = 0;
         System.out.println("Delete the book by index");
         System.out.println();
         for (Book b: bookList) {
-            System.out.println("Book index:" + b.getIndx() + " Book name: " + b.getName() + ", Book author: " + b.getAuthor() + ", Year: " + b.getYear());
+            System.out.println("Book index:" + indx + " Book name: " + b.getName() + ", Book author: " + b.getAuthor() + ", Year: " + b.getYear());
+            indx++;
         }
+        indx = 0;
         System.out.println();
         System.out.print("Index: ");
-        int indx = scanner.nextInt();
+        int ind = scanner.nextInt();
+        bookList.remove(ind);
         for (Book b: bookList) {
-            if(indx == b.getIndx()){
-                bookList.remove(b.getIndx());
-            }
+            System.out.println("Book index: " + indx + ", Book name: " + b.getName() + ", Book author: " + b.getAuthor() + ", Year: " + b.getYear());
+            indx++;
         }
         System.out.println();
-        for (Book b: bookList) {
-            if(b.getIndx()>indx){
-                int num = b.getIndx();
-                num--;
-                b.setIndx(num);
-            }
-            System.out.println("Book index: " + b.getIndx() + " Book name: " + b.getName() + ", Book author: " + b.getAuthor() + ", Year: " + b.getYear());
-        }
     }
 
     public static void logIn() {
