@@ -1,4 +1,4 @@
-public class Client {
+public class Client<C> {
     private String firstName;
     private String lastName;
     private String email;

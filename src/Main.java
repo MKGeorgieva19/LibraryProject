@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
     static List<Book> bookList = new ArrayList<>();
     static List<Librarian> librarianList = new ArrayList<>();
+    static List<Client> clientList = new ArrayList<>();
 
     public static void main(String[] args) {
         Librarian librarian = new Librarian("Miriam", "Georgieva", "12345", "MKGeorgieva19@codingburgas.bg", 18);
@@ -22,6 +23,9 @@ public class Main {
 
         Client client = new Client("Ivaylo", "Radev", "IMRadev19@codingburgas.bg", 18,"Nqkoi",0);
         Client client1 = new Client("Vanina", "Teneva","VNTeneva19@codingburgas.bg", 17, "Nikoi", 8);
+
+        clientList.add(client);
+        clientList.add(client1);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -72,6 +76,7 @@ public class Main {
                     deleteBookByIndex();
                     break;
                 case 3:
+                    addNewClient();
                     break;
                 case 4:
                     break;
@@ -134,6 +139,9 @@ public class Main {
         System.out.println();
     }
 
+    public static void addNewClient(){
+
+    }
     public static void logIn() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Email: ");
